@@ -1,0 +1,120 @@
+1.  In your own words, explain what clean code is and why it is important.
+
+A:  Clean code is a way of writing code that makes it easier to read and easier to maintain.
+
+2.  Read this article about Toyota and their use of bad code.  Although you may not yet understand all of the topics discussed, think about another commonly used object that relies on computers and explain what would happen if the code was not created to an acceptable standard.
+
+A:  Traffic lights rely heavily on computer code.  If their code was not created to an acceptable standard, it could again cause fatalities due to unreliable code.
+
+3. This code had too many comments, non descriptive function and variable names, and was not modular(for example - did more than one thing in a function) (Refactored code below)
+
+FUNCTION convertTemperature(degrees, units)
+  IF units = 'F' THEN
+  CALL convertFahrenheit with (degrees)
+  ELSE IF units = 'C' THEN
+  CALL convertCelsius with (degrees)
+  ELSE PRINT 'Choose F for Fahrenheit or C for Celsius'
+  END IF
+END FUNCTION
+
+FUNCTION convertFahrenheit(degrees)
+  SET temperatureFahrenheit to (degrees - 32) * (5/9)
+  PRINT temperatureCelsius + 'C'
+END FUNCTION
+
+FUNCTION convertCelsius(degrees)
+  SET temperatureFahrenheit to degrees *  1.8 + 32
+  PRINT temperatureFahrenheit + 'F'
+END FUNCTION
+
+
+
+4. This is clean code.  It is clear in content without needing comments and nests properly.
+
+5.
+a. Refactored because of DRY principle and multiple uses of finding total.
+
+FUNCTION calculateTotal
+  SET total to subTotal * discountRate + (subtotal * tax)
+  RETURN subTotal
+END function
+
+FUNCTION processPayment
+  PRINT 'Your total due is: ' + total
+  IF paymentType = 'CASH' THEN
+    CALL getPayment RETURNING amount
+    PRINT "Change due: " + amount - subTotal
+  ELSE IF paymentType = 'CREDIT CARD'
+    CALL getPayment RETURNING amount
+    PRINT "Your credit card has been charged: " + total
+  END IF
+END FUNCTION
+
+
+b. Removal of excessive nesting.
+FUNCTION checkoutBook(book, guest)
+  IF guest.accountActive AND NOT(guest.hasOverdueBooks) AND guest.outstandingFees = 0 THEN
+    APPEND book to guest.books
+    SET book.status to "Checked Out"
+    PRINT "Your books have been issued."
+  ELSE
+     PRINT "Unable to check out book."
+  END IF
+END FUNCTION
+
+c. We want to split this into 2 different areas of concern(or classes)
+
+CLASS Money
+  FUNCTION displayBalance
+    PRINT displayBalance
+  END FUNCTION
+
+  FUNCTION deposit(amount)
+    SET balance to balance + amount
+  END FUNCTION
+
+  FUNCTION withdraw(amount)
+    IF balance > amount
+      SET balance to balance - amount
+    END IF
+  END FUNCTION
+  ...
+  ...
+  ...
+END
+
+CLASS Business
+  FUNCTION creditCardOffer
+    IF NOT(customer.hasCreditCard)
+      CALL offerCreditCard
+    END IF
+  END FUNCTION
+  FUNCTION checkStatus
+    IF NOT(customer.hasCheckingAccount)
+      CALL offerCheckingAccount
+    END IF
+  END function
+  ...
+  ...
+  ...
+END
+
+6.
+function perfectSquare(array) {
+  var arraySum = array.reduce((total, amount)=> total + amount);
+    var sumSquareRoot = Math.sqrt(arraySum);
+    return (sumSquareRoot % 1 === 0 ? sumSquareRoot : arraySum);
+}
+
+7.
+function isDuplicate(array) {
+  var count = [];
+  for (i = 0; i <= array.length; i++) {
+    if (count[array[i]] === undefined) {
+      count[array[i]] = 1;
+    } else {
+        return true;
+    }
+  }
+  return false;
+}
