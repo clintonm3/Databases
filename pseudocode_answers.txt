@@ -1,0 +1,56 @@
+SHORT ANSWERS
+
+1. Why do programmers use pseudocode?
+
+A: Programmers use pseudocode in order to convey what code should do without using a particular language.
+
+2. If you run pseudocode on your computer what would happen?
+
+A: Psuedocode isn't real code, therefore nothing would happen(for example, errors).
+
+PROGRAMMING ASSIGNMENT
+
+1.
+
+INPUT number1 and number2
+FUNCTION compareNumbers(number1, number2)
+  IF number1 > number2
+    PRINT number1
+  ELSE
+    PRINT number2
+  END IF
+END FUNCTION
+
+
+
+2.
+
+FUNCTION printNumbers
+  SET number = 1
+  WHILE number < 101
+    PRINT number
+    SET number = number + 1
+  END WHILE
+END FUNCTION
+
+3.
+
+FUNCTION returnPhoneNumber
+  LOAD OBJECT phoneBook
+  PROMPT for name
+  RETURN phoneBook by name
+END FUNCTION
+
+4.
+
+function returnPhoneNumber() {
+  var phoneBook = {
+    'Clinton': '(541)914-4485',
+    'Allison': '(541)320-5454',
+    'Max': '(415)620-3923',
+    'Dana': '(320)425-6969'
+  };
+  var name = [prompt('First Name!')];
+  var phoneNumber = phoneBook[name];
+  return phoneNumber;
+}
