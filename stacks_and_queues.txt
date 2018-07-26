@@ -1,0 +1,61 @@
+1. What is the main difference between a stack and a queue?
+
+A: A stack data structure arranges elements in LIFO priority. A queue data structure arranges elements in FIFO priority.
+
+2. What are the similarities between stacks and queues?
+
+A: Both are ways of storing/organizing data.
+
+3. Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
+
+A: For UNDO, I would use a Stack because we would be moving through data in a reverse order.  For REDO, I would use a Queue because you are doing the opposite of UNDO, that is moving through data in a progressional chronological order.
+
+PROGRAMMING QUESTIONS
+
+1. Given a string, reverse it using a stack. For example, the string "Bloc!" should be converted to "!colB".
+
+A:
+
+var letters = [];
+var reverseWord = '';
+var enterWord = prompt('Enter a string of characters');
+
+for (let i = 0; i < word.length; i++) {
+  letters.push(word[i]);
+}
+
+for (let i = 0; i < word.length; i++) {
+  reverseWord += letters.pop();
+}
+
+2. Implement the delete functionality of a stack using one queue. Make a FIFO data structure mirror the functionality of a LIFO data structure.
+
+A:
+
+CLASS Stack
+  FUNCTION pop(queue)
+    INIT empty Array newQueue and itemDeletion
+    FOR each character in queue
+      IF NOT last character in queue
+        PUSH to end of newQueue
+      ELSE
+        PUSH last character in queue to itemDeletion
+      END IF
+    END FOR
+  END FUNCTION
+END CLASS
+
+
+3. Fill in the methods for the following Queue class so that it will work as expected (FIFO).
+
+A:
+
+CLASS QUEUE
+  FUNCTION enqueue(element)
+    PUSH element to Array
+  END FUNCTION
+
+  FUNCTION dequeue
+    SHIFT Array
+  END FUNCTION
+END CLASS
