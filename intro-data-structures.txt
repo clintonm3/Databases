@@ -1,0 +1,45 @@
+1. Give all the code and written answers in a file named intro-data-structures.txt:
+
+a.
+var rideLine = ['Vivian', 'Ava', 'Josh', 'Patrick', 'Mike'];
+
+function addRider(rider) {
+  rideLine.push(rider);
+  return rideLine;
+}
+
+function findRider(rider) {
+  var riderIndex = rideLine.indexOf(rider);
+  if (riderIndex === -1) {
+    riderIndex = 'No rider';
+  }
+  return riderIndex;
+}
+
+function cutInFront(currentRider, newRider) {
+  currentRiderIndex = findRider(currentRider);
+  rideLine.splice(currentRiderIndex, 0, newRider);
+  return rideLine;
+}
+
+function removeRider(rider) {
+  riderIndex = findRider(rider);
+  rideLine.splice(riderIndex, 1);
+  return rideLine;
+}
+
+b. addRider('Mary');
+c. findRider('Josh');
+d. findRider('Emily');
+      -the indexOf method will return -1 or 'No rider'.
+e. cutInFront('Ava', 'Melissa');
+f. removeRider('Patrick');
+
+2. Provide another real-world example that you can model using a data structure.
+
+A:  You can model a family tree using a data structure because of their hierarchical nature.
+
+3. How would your data structure allow developers to access and manipulate the data?
+
+A:  Developers may access the desired node through the relationship between parent and children nodes.
+Manipulation can be achieved by adding a node to the tree or deleting a node(which can cause deletion of child nodes). 
