@@ -1,0 +1,136 @@
+1. What is a hash table?
+
+A: A type of data structure that stores each value by linking it to a key, forming key-value pairs.
+
+2. What is hashing?
+
+A: Since arrays can only be indexed by numbers, we use hashing to convert string keys into numerical indices.
+
+3. How does a hash table store data?
+
+A:  Hash tables take the key, convert the key to a hash code using a hashing function, then mod the hash code in order to get an array index, and finally store the value in the array index.
+
+4. How are hash tables and objects different?
+
+A:  They differ in their overall structure.  Hash tables are used when your data contains a variable number of consistently formatted values, each with an identifier. While, objects are used when your data is a static number of distinct values of different types.
+
+5.
+A list of pets and their unique names.
+A: hash table
+The name, age, and the birthday of your best friend.
+A: object
+The name and location of every company in a given city.
+A: hash table
+All of the books checked out from a library by a particular individual.
+A: hash table
+The primary and secondary phone numbers for a contact.
+A: object
+
+6. Build a system that allows a sales associate to enter a customer's name, address, and phone number into the system and look up customers using their phone numbers. Store this information in a hash table.
+
+A:
+
+var customerInfoMap = new Map();
+var phoneNumber, name, address;
+
+function lookUpCustomer() {
+  phoneNumber = prompt('Search Customer by Phone Number');
+  if (customerInfoMap.get(phoneNumber)) {
+    displayCustomerInfoMap(phoneNumber);
+  } else {
+      enterCustomerInfo(phoneNumber);
+  }
+}
+
+function enterCustomerInfo(phoneNumber) {
+  alert('Customer Dos not exist');
+  name = prompt('Enter Name');
+  address = prompt('Enter Address');
+  customerInfoMap.set(phoneNumber, { name: customerName, address: customerAddress, phone: customerPhone });
+  console.log(customerInfoMap.get(phoneNumber).name);
+	console.log(customerInfoMap.get(phoneNumber).address);
+	console.log(customerInfoMap.get(phoneNumber).phone);
+	console.log('Customer Info Entered!');
+}
+
+function displayCustomerInfoMap(phoneNumber) {
+  console.log('Name: ' + customerInfoMap.get(phoneNumber).name);
+  console.log('Address: ' + customerInfoMap.get(phoneNumber).address);
+	console.log('Phone: ' + customerInfoMap.get(phoneNumber).phone);
+}
+
+lookUpCustomer();
+
+7. Build a system that allows a store owner to track their store's inventory using a hash table for storage.
+
+A:
+
+var trackInventoryMap = newMap();
+var inventorySku, inventoryDescription, inventoryQuantity;
+
+function lookUpQuantity() {
+  inventorySku = prompt('Search Inventory SKU');
+  if (trackInventoryMap.get(inventorySku)) {
+    displayInventoryMap(inventorySku);
+  } else {
+    enterInventoryInfo(inventorySku);
+  }
+}
+
+function enterInventoryInfo(inventorySku) {
+  alert('Part does not exist!');
+  inventoryQuantity = prompt('Number in stock?');
+  inventoryDescription = prompt('Describe inventory');
+  trackinventoryMap.set(inventorySku, {
+    sku: inventorySku,
+    description: inventoryDescription,
+    quantity: inventoryQuantity,
+  })};
+  console.log(trackInventoryMap.get(inventorySku).sku);
+	console.log(trackInventoryMap.get(inventorySku).description);
+	console.log(trackInventoryMap.get(inventorySku).quantity);
+	console.log('Part Info Entered!');
+}
+
+function displayInventoryMap(inventorySku) {
+  console.log('Part#: ' + trackInventoryMap.get(partNumber).part);
+  console.log('Quantity: ' + trackInventoryMap.get(partNumber).quantity);
+  console.log('Description: ' + trackInventoryMap.get(partNumber).description);
+}
+lookUpQuantity();
+
+8. Build a system that allows digital copies of newspapers to be entered and searched by publisher and publication date. Use hash tables to store the necessary data.
+
+A:
+
+var newspaperMap = new Map();
+var paperName, paperDate;
+var mapKey = paperName + paperDate;
+
+function lookUpNewspaper() {
+  paperName = prompt('Newspaper's name');
+  paperDate = prompt('Publication date');
+
+  if (newspaperMap.get(mapKey)) {
+    displayNewspaper(mapKey);
+  } else {
+      enterNewspaper(mapKey);
+  }
+}
+
+function enterNewspaper(mapKey) {
+  alert('Newspaper not available for this date!')
+  newspaperMap.set(mapkey, {
+    paper: paperName,
+    date: paperDate,
+  })
+  console.log(newspaperMap.get(mapKey).paper);
+	console.log(newspaperMap.get(mapKey).date);
+	console.log('Newspaper Entered!');
+}
+
+function displayNewspaper(mapKey) {
+  console.log('Newspaper: ' + newspaperMap.get(mapKey).paper);
+  console.log('Date Published: ' + newspaperMap.get(mapKey).date);
+}
+lookUpNewspaper();
