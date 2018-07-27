@@ -23,118 +23,142 @@ LinkedList.prototype.push = function(element) {
   IF the head node does not exist
     THEN SET head to node
   ELSE
-    SET node.next to head
-    SET head to node
+    SET current node to head
+    WHILE current.next
+      current node = current.next
+    END WHILE
+    SET current.next to node
+  END IF
   }
 }
 
 2. Given an unsorted singly linked list, remove all duplicates from the linked list.
-
+Example
+Input: a -> c -> d -> d -> a
+Output: a -> c -> d
 A:
 
 class LinkedList {
-	constructor(..values..) {
-		this.head = null;
-		this.length = 0;
-		this.addToHead(..values..);
-	}
+  constructor(...values) {
+    this.head = null;
+    this.length = 0;
+    this.addToHead(...values);
+  }
 
-	addItemToHead(value) {
-		const newNode = { value };
-		newNode.next = this.head;
-		this.head = newNode;
-		this.length++;
-	}
+  addSingleItemToHead(value) {
+    const newNode = { value };
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+  }
 
-	addToHead(..values..) {
-		values.forEach(value => this._addItemToHead(value));
-		return this;
-	}
-
-	removeDuplicate() {
-		if (!this.head || !this.head.next) {
-			return;
-		}
-
-		var thisNode = this.head;
-		while (thisNode != null) {
-			var previousNode = thisNode;
-			var nextNode = thisNode.next;
-		while (nextNode != null) {
-		  if (thisNode.value == nextNode.value) {
-			  previousNode.next = nextNode.next;
-        this.length --;
-		  } else {
-				  previousNode = nextNode;
-				}
-				nextNode = nextNode.next;
-			}
-			thisNode = thisNode.next;
-		}
+  addToHead(...values) {
+    values.forEach(value => this._addSingleItemToHead(value));
     return this;
-	}
+  }
 
-	showAllElements() {
-		if (this.head == null) return;
-		var thisNode = this.head,
-			i = 1;
-		while (thisNode.next != null) {
-			thisNode = thisNode.next;
-			i++;
-		}
-	}
+  removeDuplicates() {
+    if (!this.head || !this.head.next) {
+      return;
+    }
+
+    var thisNode = this.head;
+    while (thisNode != null) {
+      var previousNode = thisNode;
+      var nextNode = thisNode.next;
+      while (nextNode != null) {
+        if (thisNode.value == nextNode.value) {
+          previousNode.next = nextNode.next;
+      this.length --;
+         } else {
+             previousNode = nextNode;
+         }
+         nextNode = nextNode.next;
+      }
+      thisNode = thisNode.next;
+    }
+return this;
 }
+
+showAllElements() {
+  if (this.head == null) return;
+  var thisNode = this.head,
+    i = 1;
+  while (thisNode.next != null) {
+    console.log('The element at position ' + i + ' has value ' + thisNode.value);
+    thisNode = thisNode.next;
+    i++;
+  }
+  console.log('The element at position ' + i + ' has value ' + thisNode.value);
+}
+}
+
+var multipleDuplicates = new LinkedList();
+multipleDuplicates.addToHead(1, 7, 9, 3, 4, 6, 3, 7);
+multipleDuplicates.removeDuplicates();
+multipleDuplicates.showAllElements();
+
 
 
 3. Given an unsorted singly linked list, reverse it.
-
+Example
+Input: a -> b -> c -> d
+Output: d -> c -> b -> a
 A:
 
+
 class LinkedList {
-	constructor(..values..) {
-		this.head = null;
-		this.length = 0;
-		this.addToHead(..values..);
-	}
+  constructor(...values) {
+    this.head = null;
+    this.length = 0;
+    this.addToHead(...values);
+  }
 
-	addItemToHead(value) {
-		const newNode = { value };
-		newNode.next = this.head;
-		this.head = newNode;
-		this.length++;
-	}
+  addSingleItemToHead(value) {
+    const newNode = { value };
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+  }
 
-	addToHead(..values..) {
-		values.forEach(value => this._addItemToHead(value));
-		return this;
-	}
+  addToHead(...values) {
+    values.forEach(value => this.addSingleItemToHead(value));
+    return this;
+  }
 
-	reverseLinkedList() {
-		if (!this.head || !this.head.next) {
-			return;
-		}
+  reverseLinkedList() {
+    if (!this.head || !this.head.next) {
+      return;
+    }
 
-		var previousNode = null;
-		var thisNode = this.head;
-		var nextNode;
+    var previousNode = null;
+    var thisNode = this.head;
+    var nextNode;
 
-		while (thisNode) {
-			nextNode = thisNode.next;
-			thisNode.next = previousNode;
-			previousNode = thisNode;
-			thisNode = nextNode;
-		}
+    while (thisNode) {
+      nextNode = thisNode.next;
+      thisNode.next = previousNode;
+      previousNode = thisNode;
+      thisNode = nextNode;
+    }
 
-		this.head = previousNode;
-	}
+    this.head = previousNode;
+  }
 
-	showAllElements() {
-		if (this.head == null) return;
-		var thisNode = this.head,
-			i = 1;
-		while (thisNode.next != null) {
-			thisNode = thisNode.next;
-			i++;
-		}
-	}
+  showAllElements() {
+    if (this.head == null) return;
+    var thisNode = this.head,
+      i = 1;
+    while (thisNode.next != null) {
+      console.log('The element at position ' + i + ' has value ' + thisNode.value);
+      thisNode = thisNode.next;
+      i++;
+    }
+    console.log('The element at position ' + i + ' has value ' + thisNode.value);
+  }
 }
+ 
+var reverseMe = new LinkedList();
+reverseMe.addToHead(4, 5, 7, 9);
+reverseMe.reverseLinkedList();
+reverseMe.showAllElements();
