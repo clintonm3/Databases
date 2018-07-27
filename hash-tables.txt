@@ -34,69 +34,72 @@ var customerInfoMap = new Map();
 var phoneNumber, name, address;
 
 function lookUpCustomer() {
-  phoneNumber = prompt('Search Customer by Phone Number');
-  if (customerInfoMap.get(phoneNumber)) {
-    displayCustomerInfoMap(phoneNumber);
-  } else {
-      enterCustomerInfo(phoneNumber);
-  }
+	phoneNumber = prompt('Search for Customer by Phone Number ###-###-####');
+	if (customerInfoMap.get(phoneNumber)) {
+		displayCustomerInfoMap(phoneNumber);
+	} else {
+		enterCustomerInfo(phoneNumber);
+	}
 }
 
 function enterCustomerInfo(phoneNumber) {
-  alert('Customer Dos not exist');
-  name = prompt('Enter Name');
-  address = prompt('Enter Address');
-  customerInfoMap.set(phoneNumber, { name: customerName, address: customerAddress, phone: customerPhone });
-  console.log(customerInfoMap.get(phoneNumber).name);
+	alert('Customer Does not exist!');
+	name = prompt('Enter Name');
+	address = prompt('Enter address');
+	customerInfoMap.set(phoneNumber, { name: customerName, address: customerAddress, phone: customerPhone });
+	console.log(customerInfoMap.get(phoneNumber).name);
 	console.log(customerInfoMap.get(phoneNumber).address);
 	console.log(customerInfoMap.get(phoneNumber).phone);
 	console.log('Customer Info Entered!');
 }
 
 function displayCustomerInfoMap(phoneNumber) {
-  console.log('Name: ' + customerInfoMap.get(phoneNumber).name);
-  console.log('Address: ' + customerInfoMap.get(phoneNumber).address);
+	console.log('Name: ' + customerInfoMap.get(phoneNumber).name);
+	console.log('Adress: ' + customerInfoMap.get(phoneNumber).address);
 	console.log('Phone: ' + customerInfoMap.get(phoneNumber).phone);
 }
 
+
 lookUpCustomer();
+
 
 7. Build a system that allows a store owner to track their store's inventory using a hash table for storage.
 
 A:
 
-var trackInventoryMap = newMap();
-var inventorySku, inventoryDescription, inventoryQuantity;
+var inventoryMap = new Map();
+var inventorySKU, inventoryQuantity, inventoryDescription;
 
 function lookUpQuantity() {
-  inventorySku = prompt('Search Inventory SKU');
-  if (trackInventoryMap.get(inventorySku)) {
-    displayInventoryMap(inventorySku);
-  } else {
-    enterInventoryInfo(inventorySku);
-  }
+	inventorySKU = prompt('Search for Inventory SKU');
+	if (inventoryMap.get(inventorySKU)) {
+		displayinventoryMap(inventorySKU);
+	} else {
+		enterPartInfo(inventorySKU);
+	}
 }
 
-function enterInventoryInfo(inventorySku) {
-  alert('Part does not exist!');
-  inventoryQuantity = prompt('Number in stock?');
-  inventoryDescription = prompt('Describe inventory');
-  trackinventoryMap.set(inventorySku, {
-    sku: inventorySku,
-    description: inventoryDescription,
-    quantity: inventoryQuantity,
-  })};
-  console.log(trackInventoryMap.get(inventorySku).sku);
-	console.log(trackInventoryMap.get(inventorySku).description);
-	console.log(trackInventoryMap.get(inventorySku).quantity);
+function enterPartInfo(inventorySKU) {
+	alert('Part Does not exist');
+	partQuantity = prompt('How many are in stock?');
+	partDescription = prompt('Description');
+	inventoryMap.set(inventorySKU, {
+		sku: inventorySKU,
+		quantity: inventoryQuantity,
+		description: inventoryDescription,
+	});
+	console.log(inventoryMap.get(inventorySKU).part);
+	console.log(inventoryMap.get(inventorySKU).quantity);
+	console.log(inventoryMap.get(inventorySKU).description);
 	console.log('Part Info Entered!');
 }
 
-function displayInventoryMap(inventorySku) {
-  console.log('Part#: ' + trackInventoryMap.get(partNumber).part);
-  console.log('Quantity: ' + trackInventoryMap.get(partNumber).quantity);
-  console.log('Description: ' + trackInventoryMap.get(partNumber).description);
+function displayinventoryMap(partNumber) {
+	console.log('SKU#: ' + inventoryMap.get(inventorySKU).sku);
+	console.log('Quantity: ' + inventoryMap.get(inventorySKU).quantity);
+	console.log('Description: ' + inventoryMap.get(inventorySKU).description);
 }
+
 lookUpQuantity();
 
 8. Build a system that allows digital copies of newspapers to be entered and searched by publisher and publication date. Use hash tables to store the necessary data.
@@ -108,29 +111,31 @@ var paperName, paperDate;
 var mapKey = paperName + paperDate;
 
 function lookUpNewspaper() {
-  paperName = prompt('Newspaper's name');
-  paperDate = prompt('Publication date');
+	paperName = prompt('Name of newspaper');
+	paperDate = prompt('Date of newspaper (MM-DD-YYYY)');
 
-  if (newspaperMap.get(mapKey)) {
-    displayNewspaper(mapKey);
-  } else {
-      enterNewspaper(mapKey);
-  }
+	if (newspaperMap.get(mapKey)) {
+		displayNewspaper(mapKey);
+	} else {
+		enterNewspaper(mapKey);
+	}
 }
 
 function enterNewspaper(mapKey) {
-  alert('Newspaper not available for this date!')
-  newspaperMap.set(mapkey, {
-    paper: paperName,
-    date: paperDate,
-  })
-  console.log(newspaperMap.get(mapKey).paper);
+	alert("Newspaper not available!");
+
+	newspaperMap.set(mapKey, {
+		paper: paperName,
+		date: paperDate,
+	});
+	console.log(newspaperMap.get(mapKey).paper);
 	console.log(newspaperMap.get(mapKey).date);
 	console.log('Newspaper Entered!');
 }
 
 function displayNewspaper(mapKey) {
-  console.log('Newspaper: ' + newspaperMap.get(mapKey).paper);
-  console.log('Date Published: ' + newspaperMap.get(mapKey).date);
+	console.log('Newspaper: ' + newspaperMap.get(mapKey).paper);
+	console.log('Date Published: ' + newspaperMap.get(mapKey).date);
 }
+
 lookUpNewspaper();
