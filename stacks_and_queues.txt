@@ -16,15 +16,21 @@ PROGRAMMING QUESTIONS
 
 A:
 
-function reverseString(str) {
-  var newString = '';
-  for (var i = str.length - 1; i >= 0; i--) {
-    newString += str[i];
-  }
-  return newString;
-}
+function reverseStack(string) {
+     let stack = [];
+     for (let i = 0; i < string.length; i++) {
+         stack.push(string[i]);
+     }
 
-console.log(reverseString('Clinton')); //returns notnilC
+     let reversed = '';
+     while (stack.length > 0) {
+         reversed += stack.pop();
+     }
+     return reversed;
+ }
+ console.log(reverseStack('Bloc!'));
+
+
 
 2. Implement the delete functionality of a stack using one queue. Make a FIFO data structure mirror the functionality of a LIFO data structure.
 
