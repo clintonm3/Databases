@@ -53,7 +53,7 @@ class LinkedList {
   }
 
   addToHead(...values) {
-    values.forEach(value => this._addSingleItemToHead(value));
+    values.forEach(value => this.addSingleItemToHead(value));
     return this;
   }
 
@@ -157,7 +157,7 @@ class LinkedList {
     console.log('The element at position ' + i + ' has value ' + thisNode.value);
   }
 }
- 
+
 var reverseMe = new LinkedList();
 reverseMe.addToHead(4, 5, 7, 9);
 reverseMe.reverseLinkedList();
