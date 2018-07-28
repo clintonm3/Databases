@@ -1,0 +1,60 @@
+EXERCISES
+
+1.
+
+FUNCTION makeCoffee
+  IF coffee is in fridge
+    GET more coffee
+  END IF
+  IF coffee is not ground
+    Put coffee in grinder to grind
+  END IF
+  IF french press is not out of storage
+    GET french press AND
+    ADD coffee to french press
+  END IF
+  HEAT up water
+  ADD water to french press
+  PUSH hand double to press coffee AND let rest
+  POUR coffee into cup
+END FUNCTION
+----------
+FUNCTION washDishes
+  IF dishes are dirty
+    GET soap AND sponge
+  END IF
+  IF water is not hot
+    TURN on hot water
+  END IF
+  FOR each dirty dish
+    grab dish and wash thoroughly with soap and water
+  END FOR
+  IF dish is clean
+    dry dish and
+    set onto drying rack
+  END IF
+END FUNCTION
+----------
+FUNCTION walkTheDog
+  IF dog is full of energy
+    grab leash
+    grab bag
+  ELSE stay on couch
+  END IF
+  PUT leash on dog and start walking
+  IF dog poops
+    clean up poop and PUT into bag
+  END IF
+  IF dog is tired
+    return home
+  END IF
+END FUNCTION
+
+
+2. -Apple: Apple's innovative technology and design has made it a clear frontrunner in the branding.
+   -Nike: Nike's design and business practices aimed to be the clear frontrunner in sports for a very long time.
+   -Amazon: Amazon's aim to be a eCommerce giant and algorithm to do so has led it to be able to conquer anything the company puts its mind to.
+
+3. Hypothesize about what constitutes an efficient algorithm versus an inefficient algorithm.
+
+A:  There are many factors that might go into the making of an efficient algorithm.  Some of them might be, the amount of space(memory) the algorithm takes up, the amount of inputs go into the algorithm, the amount of outputs it creates, the overall cost of the algorithm, the measured performance, etc...
