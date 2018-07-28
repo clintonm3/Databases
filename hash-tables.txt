@@ -31,76 +31,77 @@ A: object
 A:
 
 var customerInfoMap = new Map();
-var phoneNumber, name, address;
+var customerPhone, customerName, customerAddress;
 
 function lookUpCustomer() {
-	phoneNumber = prompt('Search for Customer by Phone Number ###-###-####');
-	if (customerInfoMap.get(phoneNumber)) {
-		displayCustomerInfoMap(phoneNumber);
+	customerPhone = prompt('Search for Customer by Phone Number in format ###-###-####');
+	if (customerInfoMap.get(customerPhone)) {
+		displayCustomerInfoMap(customerPhone);
 	} else {
-		enterCustomerInfo(phoneNumber);
+		enterCustomerInfo(customerPhone);
 	}
 }
 
-function enterCustomerInfo(phoneNumber) {
+function enterCustomerInfo(customerPhone) {
 	alert('Customer Does not exist!');
-	name = prompt('Enter Name');
-	address = prompt('Enter address');
-	customerInfoMap.set(phoneNumber, { name: customerName, address: customerAddress, phone: customerPhone });
-	console.log(customerInfoMap.get(phoneNumber).name);
-	console.log(customerInfoMap.get(phoneNumber).address);
-	console.log(customerInfoMap.get(phoneNumber).phone);
-	console.log('Customer Info Entered!');
+	customerName = prompt('Enter Name');
+	customerAddress = prompt('Enter address');
+	customerInfoMap.set(customerPhone, {
+      phone: customerPhone,
+      name: customerName,
+      address: customerAddress,
+    });
+    console.log(customerInfoMap.get(customerPhone).phone);
+	console.log(customerInfoMap.get(customerPhone).name);
+	console.log(customerInfoMap.get(customerPhone).address);
 }
 
-function displayCustomerInfoMap(phoneNumber) {
-	console.log('Name: ' + customerInfoMap.get(phoneNumber).name);
-	console.log('Adress: ' + customerInfoMap.get(phoneNumber).address);
-	console.log('Phone: ' + customerInfoMap.get(phoneNumber).phone);
+function displayCustomerInfoMap(customerPhone) {
+    console.log('Phone: ' + customerInfoMap.get(customerPhone).phone);
+	console.log('Name: ' + customerInfoMap.get(customerPhone).name);
+	console.log('Adress: ' + customerInfoMap.get(customerPhone).address);
 }
 
 
 lookUpCustomer();
 
 
+
 7. Build a system that allows a store owner to track their store's inventory using a hash table for storage.
 
 A:
 
+
 var inventoryMap = new Map();
 var inventorySKU, inventoryQuantity, inventoryDescription;
-
-function lookUpQuantity() {
+ function lookUpQuantity() {
 	inventorySKU = prompt('Search for Inventory SKU');
 	if (inventoryMap.get(inventorySKU)) {
 		displayinventoryMap(inventorySKU);
 	} else {
-		enterPartInfo(inventorySKU);
+		enterInventoryInfo(inventorySKU);
 	}
 }
-
-function enterPartInfo(inventorySKU) {
-	alert('Part Does not exist');
-	partQuantity = prompt('How many are in stock?');
-	partDescription = prompt('Description');
+ function enterInventoryInfo(inventorySKU) {
+	alert('Part Does not exist! Clear message to enter additional info!');
+	inventoryQuantity = prompt('How many in stock?');
+	inventoryDescription = prompt('Description');
 	inventoryMap.set(inventorySKU, {
-		sku: inventorySKU,
+		inventory: inventorySKU,
 		quantity: inventoryQuantity,
 		description: inventoryDescription,
 	});
-	console.log(inventoryMap.get(inventorySKU).part);
+	console.log(inventoryMap.get(inventorySKU).inventory);
 	console.log(inventoryMap.get(inventorySKU).quantity);
 	console.log(inventoryMap.get(inventorySKU).description);
 	console.log('Part Info Entered!');
 }
-
-function displayinventoryMap(partNumber) {
-	console.log('SKU#: ' + inventoryMap.get(inventorySKU).sku);
+ function displayInventoryMap(inventorySKU) {
+	console.log('SKU#: ' + inventoryMap.get(inventorySKU).inventory);
 	console.log('Quantity: ' + inventoryMap.get(inventorySKU).quantity);
 	console.log('Description: ' + inventoryMap.get(inventorySKU).description);
 }
-
-lookUpQuantity();
+ lookUpQuantity();
 
 8. Build a system that allows digital copies of newspapers to be entered and searched by publisher and publication date. Use hash tables to store the necessary data.
 
@@ -122,8 +123,6 @@ function lookUpNewspaper() {
 }
 
 function enterNewspaper(mapKey) {
-	alert("Newspaper not available!");
-
 	newspaperMap.set(mapKey, {
 		paper: paperName,
 		date: paperDate,
