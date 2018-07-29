@@ -1,0 +1,57 @@
+EXERCISES
+
+1. Write pseudocode for bubble sort.
+
+A:
+
+FUNCTION bubbleSort(collection)
+  SET swapped to false
+    FOR i = FIRST INDEX of collection to LAST INDEX of collection - 1
+      IF collection[i] > collection[i + 1] then
+        SET tmp to collection[i]
+        SET collection[i] to collection[i + 1]
+        SET collection[i + 1] to tmp
+        SET swapped to true
+      END IF
+    END FOR
+  UNTIL swapped is FALSE
+  RETURN collection
+END FUNCTION
+
+
+2. Write pseudocode for quicksort.
+
+A:
+
+FUNCTION quickSort(elementsToSort, lowElementIndex, highElementIndex)
+  IF elementsToSort[lowElementIndex] < elementsToSort[highElementIndex] THEN
+    SET pivotElementIndex = CALL partitionElements(elementsToSort, lowElementIndex,highElementIndex)
+    CALL quickSort (elementsToSort, lowElementIndex, pivotElementIndex)
+    CALL quickSort (elementsToSort, pivotElementIndex + 1, highElementIndex)
+  END IF
+END FUNCTION
+
+FUNCTION partitionElements(elementsToSort, lowElementIndex, highElementIndex)
+  SET pivotElement = elementsToSort[lowElementIndex]
+  SET leftwall = lowElementIndex
+  FOR each elementsToSort with index between lowElementIndex +1 and highElementIndex
+    IF elementsToSort[index] < pivotElement THEN
+      SET swapElement = elementsToSort[index]
+      SET elementsToSort[index] = elementsToSort[leftwall + 1]
+      SET elementsToSort[leftwall + 1] = swapElement
+      INCREMENT leftwall
+    END IF
+  END FOR
+  SET swapElement = pivotElement
+  SET pivotElement = elementsToSort[leftwall]
+  SET elementsToSort[leftwall] = swapElement
+  RETURN leftwall
+END FUNCTION
+
+3. We talked about time complexity in a previous checkpoint, and how to get an idea of the efficiency of an algorithm. After looking at the pseudocode for the above sorting methods, identify why merge sort and quick sort are much more efficient than the others. Walking through each algorithm with a few sample collections may help.
+
+A:  Merge sort and quick sort both break up the initial collection of data which makes them most efficient as compared to other sorting methods.  This is quicker because it doesn't cause a looping over each item(sometimes multiple times) like that of the bubble sort.
+
+4. All of the sorts addressed in this checkpoint are known as comparison sorts. Research bucket sort and explain how it works. What is the ideal input for bucket sort?
+
+A:  Bucket sort works by distributing the elements of an array into a number of buckets.  Each bucket is then sorted individually, either using a different sorting algorithm, or by recursively applying the bucket sorting algorithm. An ideal input is where the values can be evenly distributed into the different buckets.
