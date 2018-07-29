@@ -1,0 +1,70 @@
+SHORT ANSWER
+
+1. What is a real-life scenario that uses linear search?
+
+A: Looking at a phonebook for a particular name.  It will be in linear or sequential order alphabetically.
+
+2. What is a real-life scenario that uses binary search?
+
+A:  Binary search can be used when looking for a book in a library.  Look for the middle rack in the library and if the book is not there exclude one half or the other depending on where the book you chose sits alphabetically.  Keep going using this method until you have narrowed down and found your book.
+
+3. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using linear search?
+
+A: 7
+
+4. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using binary search?
+
+A: 3
+
+5. Given an unsorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+
+A: Linear search. I would use this simply because binary searches do not work in unsorted collections.
+
+6. Given a sorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+
+A: Binary search.  I would use a binary search because in a linear search you could have go through it a million times before you got to your number.  Binary searches allow you to cut this time in half by excluding half the data each search.
+
+PROGRAMMING ASSIGNMENT
+
+1. You and a friend have set a wager to see who can find the word "Albatross" in the dictionary the fastest. Write a program to allow you to win the bet.
+
+A:
+
+function wordSearch(array, word) {
+  var lowElement = array[0];
+  var highElement = array[array.length - 1];
+
+  while (lowElement <= highElement) {
+    var middleElement = (array.indexOf(lowElement) + array.indexOf(highElement)) / 2;
+    middleElement = Math.round(middleElement);
+
+    if (array[middleElement] > word) {
+      highElement = array[middleElement - 1];
+    } else if (array[middleElement] < word) {
+      lowElement = array[middleElement + 1];
+    } else {
+      return array[middleElement];
+    }
+  }
+  return 'That name is not in the list';
+}
+
+var dictionary = ['ability', 'abroad', 'account', 'aggressive', 'aim', 'air', 'albatross'];
+console.log(wordSearch(dictionary, 'albatross'));
+
+2. You work at a pet store, and a child has asked you to net the only white-spotted goldfish from the fish tank. Write a program that will help you net the right fish.
+
+A:
+
+function findFish(fishToSearch, fishToFind) {
+  for (var i = 0; i < fishToSearch.length; i++) {
+    if (fishToSearch[i] === fishToFind) {
+      return "You caught a " + fishToFind;
+    }
+  }
+  return "There is no " + fishToFind + " in the tank";
+}
+
+var fishTank = ['blue fish', 'white fish', 'green fish', 'black fish', 'white-spotted goldfish', 'silver fish'];
+
+console.log(findFish(fishTank, 'white-spotted goldfish'));
