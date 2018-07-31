@@ -1,0 +1,8 @@
+EXERCISES
+
+1. What data types do each of these values represent?
+    1. "A Clockword Orange"
+    2. 42
+    3. 09/02/1945
+    4. 98.7
+    5. $15.99
