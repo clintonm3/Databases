@@ -1,10 +1,63 @@
 EXERCISES
 
 1. What data types do each of these values represent?
-    1. "A Clockword Orange"
-    2. 42
-    3. 09/02/1945
-    4. 98.7
-    5. $15.99
+    1. "A Clockword Orange" - String
+    2. 42 - integer
+    3. 09/02/1945 integer/date
+    4. 98.7 float
+    5. $15.99 float/currency
 
-2. 
+2. Explain when a database would be used. Explain when a text file would be used.
+
+A: Use a text file when data needs to be read.  Use a database when you are storing a lot of data and when there will be a frequent amount of deletions, additions and edits to this data.
+
+3. Describe one difference between SQL and other programming languages.
+
+A:  SQL is a declarative language rather than a procedural language.
+
+4. In your own words, explain how the pieces of a database system fit together at a high level.
+
+A: Databases are made up of cells which are the cross-section of columns and rows.  Each cell holds a value or "data".  Rows are horizontal and contain bits of data for a particular record with a key value that allows access to column-stored data.  Columns contain the same type of data element defined by the header.
+
+5. Explain the meaning of table, row, column, and value.
+
+A: A table is the structure in which a database is displayed with columns(vertical) which define what the data represents and rows(horizontal) that make up a complete conceptual unit.  A value lies in a cell that holds some piece of information that the column name describes.
+
+6. List three data types that can be used in a table.
+
+A: Integer, Float and String
+
+7. Given this payments table, provide an English description of the following queries and include their results:
+SELECT date, amount
+FROM payments;
+
+SELECT amount
+FROM payments
+WHERE amount > 500;
+
+SELECT *
+FROM payments
+WHERE payee = 'Mega Foods';
+
+A: 1. English translation: From the payments table give me all payments dates payments were made and the corresponding amounts.
+   2. English translation: From the payments table give me all payment amounts that are larger than 500.
+   3. English translation: From the payments table give me all payments that the payee is Mega Foods.
+
+8. Given this users table, write SQL queries using the following criteria and include the output:
+The email and sign-up date for the user named DeAndre Data.
+A:
+SELECT email, signup date
+FROM users
+WHERE name = 'DeAndre Data'
+
+The user ID for the user with email 'aleesia.algorithm@uw.edu'.
+A:
+SELECT userid
+FROM users
+WHERE email = 'aleesia.algorithm@uw.edu'
+
+All the columns for the user ID equal to 4.
+A:
+SELECT *
+FROM users
+WHERE userid = 4
